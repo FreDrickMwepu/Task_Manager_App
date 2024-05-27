@@ -1,19 +1,25 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="My App">
-    <meta name="author" content="My Name">
-    <meta name="theme-color" content="#ffffff">
-    <meta name="robots" content="noindex, nofollow">
-    <link rel="stylesheet" href="{{ url_for('static', filename="css/main.css") }}">
-    
-    {% block head %}{% endblock %}
-  </head>
-  <body>
-    {% block body %}{% endblock %}
+<html lang="en">
+    <head>
+        {% block head %}
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <script src="scripts.js"></script>
-  </body>
+        {% block styles %}
+            <!-- Bootstrap CSS -->
+            {{ bootstrap.load_css() }}
+        {% endblock %}
+
+        {% endblock %}
+    </head>
+    <body>
+        <!-- Your page content -->
+        {% block content %}{% endblock %}
+
+        {% block scripts %}
+            <!-- Optional JavaScript -->
+            {{ bootstrap.load_js() }}
+        {% endblock %}
+    </body>
 </html>

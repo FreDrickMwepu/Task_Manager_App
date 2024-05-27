@@ -1,11 +1,14 @@
 from flask import Flask, render_template, url_for, request, redirect 
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime  
+from flask_bootstrap import Bootstrap5
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
 db = SQLAlchemy(app)
 app.app_context().push() 
+
+bootstrap = Bootstrap5(app)
 
 class Todo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
